@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::get(['id', 'name', 'email']);
+        $users = User::simplePaginate(5);
         return view('users.index', compact('users'));
     }
 

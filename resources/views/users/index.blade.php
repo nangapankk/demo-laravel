@@ -14,11 +14,13 @@
                         {{--Untuk menampilkan pesan--}}
                         @if ($message = Session::get('success'))
                             <div class="alert alert-success">
-                                <p>{{ $message }}</p>
+                                {{ $message }}
                             </div>
-                        @else
+                        @endif
+
+                        @if ($message = Session::get('unsuccess'))
                             <div class="alert alert-danger">
-                                <p>{{ $message }}</p>
+                                {{ $message }}
                             </div>
                         @endif
                         {{--End Untuk menampilkan pesan--}}
@@ -26,7 +28,7 @@
                         {{--Untuk menampilkan data--}}
                         <table class="table table-bordered table-hover">
                             <thead>
-                            <tr>
+                            <tr class="text-center">
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Email</th>
@@ -36,7 +38,7 @@
                             <tbody>
                             @foreach($users as $no => $user)
                                 <tr>
-                                    <td>
+                                    <td class="text-center">
                                         {{ $no+=1 }}
                                     </td>
                                     <td>
@@ -47,6 +49,7 @@
                                     </td>
                                     <td class="text-center">
                                         <form action="{{ route('users.destroy',$user->id) }}" method="POST">
+                                            <a class="btn btn-dark" href="{{ route('users.show',$user->id) }}">Detail</a>
                                             <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
                                             @csrf
                                             @method('DELETE')
