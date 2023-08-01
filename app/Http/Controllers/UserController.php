@@ -118,14 +118,12 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required|min:8',
         ]);
 
         try {
             $user->update([
                 'name' => $request['name'],
                 'email' => $request['email'],
-                'password' => $request['password'],
             ]);
 
             return redirect()->route('users.index')->with('success', 'User has been updated successfully.');
