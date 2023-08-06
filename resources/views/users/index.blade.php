@@ -7,12 +7,6 @@
                 <div class="card">
                     <div class="card-header">
                         {{ __('Manajemen User') }}
-
-                        <span class="float-end">
-                            <a href="{{ route('users.create') }}" class="btn btn-sm btn-success">
-                                Tambah
-                            </a>
-                        </span>
                     </div>
 
                     <div class="card-body">
@@ -55,11 +49,11 @@
                                     </td>
                                     <td class="text-center">
                                         <form action="{{ route('users.destroy',$user->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-dark" href="{{ route('users.show',$user->id) }}">Detail</a>
-                                            <a class="btn btn-sm btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
+                                            <a class="btn btn-dark" href="{{ route('users.show',$user->id) }}">Detail</a>
+                                            <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
